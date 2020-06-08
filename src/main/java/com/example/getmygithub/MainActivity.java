@@ -19,22 +19,23 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView Main_RecyclerView;
     RecyclerView.LayoutManager Main_RecyclerView_layoutManager;
     RecyclerView.Adapter Main_RecyclerView_adapter;
+    ArrayList<ListElementData> RepoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<ListElementData> dataX = new ArrayList<>();
-        dataX.add(new ListElementData("Repo1", "https\\Repo1"));
-        dataX.add(new ListElementData("Repo2", "https\\Repo22"));
-        dataX.add(new ListElementData("Repo3", "https\\Repo333"));
-        dataX.add(new ListElementData("Repo4", "https\\Repo4444"));
+        RepoList = new ArrayList<>();
+        RepoList.add(new ListElementData("Repo1", "https\\Repo1"));
+        RepoList.add(new ListElementData("Repo2", "https\\Repo22"));
+        RepoList.add(new ListElementData("Repo3", "https\\Repo333"));
+        RepoList.add(new ListElementData("Repo4", "https\\Repo4444"));
 
         Main_RecyclerView = (RecyclerView) findViewById(R.id.recyclerView_x);
         Main_RecyclerView.setHasFixedSize(true);
         Main_RecyclerView_layoutManager = new LinearLayoutManager(this);
-        Main_RecyclerView_adapter = new MainViewAdapter(dataX);
+        Main_RecyclerView_adapter = new MainViewAdapter(RepoList);
 
         Main_RecyclerView.setLayoutManager(Main_RecyclerView_layoutManager);
         Main_RecyclerView.setAdapter(Main_RecyclerView_adapter);
@@ -43,6 +44,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void fetch_button(View v)
     {
+        RepoList.clear();
+        RepoList.add(new ListElementData("RepoX", "https\\Repo1"));
+        RepoList.add(new ListElementData("RepoY", "https\\Repo22"));
+        RepoList.add(new ListElementData("RepoZ", "https\\Repo333"));
+        RepoList.add(new ListElementData("RepoC", "https\\Repo4444"));
+        RepoList.add(new ListElementData("Repo1", "https\\Repo1"));
+        RepoList.add(new ListElementData("Repo2", "https\\Repo22"));
+        RepoList.add(new ListElementData("Repo3", "https\\Repo333"));
+        RepoList.add(new ListElementData("Repo4", "https\\Repo4444"));
+        RepoList.add(new ListElementData("RepoABC", "https\\Repo1"));
+        RepoList.add(new ListElementData("RepoDEF", "https\\Repo2"));
+        RepoList.add(new ListElementData("RepoGHI", "https\\Repo3"));
+        RepoList.add(new ListElementData("RepoJKL", "https\\Repo4"));
+
+        Main_RecyclerView_adapter.notifyDataSetChanged();
 
     }
 }
